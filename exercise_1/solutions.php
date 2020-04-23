@@ -70,7 +70,7 @@ function maxProfit(array $pricesAndPurchases): int
 //----------------------------------------------------
 
 function stringCost(string $a, string $b,
-                    int $insertionCost, int $deletionCost, int $replacementCost):int
+                    int $insertionCost, int $deletionCost, int $replacementCost): int
 {
     //Checking if replacing is more expensive than delete+insert
     $isReplaceMoreExpensive = false;
@@ -116,9 +116,24 @@ function stringCost(string $a, string $b,
 
 //echo(stringCost('bitten', 'meeting', 2, 3, 6));
 
-
+//----------------------------------------------------
 //------------------PROBLEM 3-------------------------
-function incrementalMedian(array $values): array
+//-----------------------------------------------------
+function incrementalMedian(array $values):array
 {
-    throw new \Exception('Not implemented.');
+    $result = [];
+    $i = 1;
+    while ($i <= count($values)) {
+        $testArr = array_slice($values, 0, $i);
+        sort($testArr);
+        if (count($testArr) % 2 !== 0) {
+            $medianIndex = floor(count($testArr) / 2);
+        }
+        $result[] = $testArr[$medianIndex];
+        $i++;
+    }
+    return $result;
+
 }
+
+//var_dump(incrementalMedian([1, 8, 4, 7, 13]));
