@@ -136,4 +136,4 @@ function incrementalMedian(array $values):array
 
 }
 
-//var_dump(incrementalMedian([1, 8, 4, 7, 13]));
+var_dump(incrementalMedian([1, 8, 4, 7, 13]));
